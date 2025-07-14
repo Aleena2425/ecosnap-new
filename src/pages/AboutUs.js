@@ -6,7 +6,7 @@ export default function AboutUs() {
       className="min-h-screen bg-cover bg-center flex items-center justify-center"
       style={{
         backgroundImage:
-          "url(https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1600&q=80)",
+          "url(https://media.istockphoto.com/id/2149895783/vector/waste-management-concept-a-man-carrying-trash-bags-with-a-smartphone-and-recycle-bin-graphic.jpg?s=612x612&w=0&k=20&c=z7Q77uOxgnqfktO65d13XRoJH4S7IATv1eIYWgusxbk=)",
       }}
     >
       <div className="bg-white/80 backdrop-blur-md rounded-xl shadow-xl p-8 max-w-3xl text-center mx-4">
