@@ -1,12 +1,24 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import * as tmImage from "@teachablemachine/image";
+
+const slogans = [
+  "Turn your trash into treasure!",
+  "Be a part of the solution, not the pollution.",
+  "Recycle today for a better tomorrow.",
+  "Don't be a waster, be a recycler!",
+  "Make every day Earth Day.",
+];
 
 export default function UploadPage() {
   const [preview, setPreview] = useState(null);
   const [result, setResult] = useState(null);
   const [ecoPoints, setEcoPoints] = useState(0);
+  const [slogan, setSlogan] = useState("");
+
+  useEffect(() => {
+    setSlogan(slogans[Math.floor(Math.random() * slogans.length)]);
+  }, []);
   const [model, setModel] = useState(null);
-  const imageRef = useRef(null);
 
   // 🧠 Load history from localStorage
   const [history, setHistory] = useState(() => {
@@ -100,11 +112,14 @@ export default function UploadPage() {
   return (
     <div className="p-6">
       <h2 className="text-2xl font-bold text-green-700 mb-4">Identify & Recycle</h2>
-      <p className="text-gray-600 mb-6">
-        Upload or capture an image of waste to receive recycling guidance.
+      <p className="text-gray-600 mb-2 italic">
+        {slogan}
+      </p>
+      <p className="text-sm text-gray-500 mb-6">
+        Upload an image to let our AI classify the waste and guide you on proper disposal. Your activity history is available on the Activity Log page.
       </p>
 
-      <div className="border-2 border-dashed border-green-300 p-6 rounded-xl bg-white shadow-md mb-6">
+      <div className="border-2 border-dashed border-green-300 p-6 rounded-xl bg-white shadow-md mb-6 transition-transform duration-300 ease-in-out transform hover:scale-105">
         {!preview ? (
           <div className="text-center text-gray-400">
             <p className="mb-2">📸 Drop an image here or use the button below</p>

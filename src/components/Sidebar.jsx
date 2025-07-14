@@ -1,68 +1,39 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+const NavItem = ({ to, icon, label }) => (
+  <NavLink
+    to={to}
+    className={({ isActive }) =>
+      `flex items-center gap-3 px-4 py-2 rounded-lg transition-colors duration-200 ${ 
+        isActive
+          ? "bg-green-100 text-green-700 font-bold"
+          : "text-gray-600 hover:bg-green-50 hover:text-green-700"
+      }`
+    }
+  >
+    <span className="text-xl">{icon}</span>
+    <span>{label}</span>
+  </NavLink>
+);
+
 export default function Sidebar() {
   return (
-    <aside className="w-64 min-h-screen bg-green-50 border-r shadow-sm p-4 hidden md:block">
-      <nav className="flex flex-col gap-4 text-green-900 font-medium">
-        <NavLink
-          to="/dashboard"
-          className={({ isActive }) =>
-            isActive ? "text-green-600 font-bold" : "hover:text-green-600"
-          }
-        >
-          🏠 Dashboard
-        </NavLink>
-        <NavLink
-          to="/upload"
-          className={({ isActive }) =>
-            isActive ? "text-green-600 font-bold" : "hover:text-green-600"
-          }
-        >
-          🖼️ Upload & Classify
-        </NavLink>
-        <NavLink
-          to="/rewards"
-          className={({ isActive }) =>
-            isActive ? "text-green-600 font-bold" : "hover:text-green-600"
-          }
-        >
-          📈 Credits & Rewards
-        </NavLink>
-        <NavLink
-          to="/activity"
-          className={({ isActive }) =>
-            isActive ? "text-green-600 font-bold" : "hover:text-green-600"
-          }
-        >
-          🧾 Activity Log
-        </NavLink>
-        <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            isActive ? "text-green-600 font-bold" : "hover:text-green-600"
-          }
-        >
-          ℹ️ About Us
-        </NavLink>
-        <NavLink
-          to="/settings"
-          className={({ isActive }) =>
-            isActive ? "text-green-600 font-bold" : "hover:text-green-600"
-          }
-        >
-          ⚙️ Settings
-        </NavLink>
-        <NavLink
-          to="/analytics"
-          className={({ isActive }) =>
-            isActive ? "text-green-600 font-bold" : "hover:text-green-600"
-          }
->
-  📊 Analytics
-</NavLink>
-
+    <aside className="w-64 min-h-screen bg-green-50 border-r shadow-lg p-4 hidden md:flex flex-col">
+      <nav className="flex flex-col gap-2 text-gray-700 font-medium mt-6">
+        <NavItem to="/" icon="🏠" label="Home" />
+        <NavItem to="/dashboard" icon="📊" label="Dashboard" />
+        <NavItem to="/upload" icon="🖼️" label="Upload & Classify" />
+        <NavItem to="/rewards" icon="📈" label="Credits & Rewards" />
+        <NavItem to="/activity" icon="🧾" label="Activity Log" />
+        <NavItem to="/analytics" icon="📊" label="Analytics" />
       </nav>
+      <div className="mt-auto">
+        <nav className="flex flex-col gap-2 text-gray-700 font-medium">
+          <NavItem to="/about" icon="ℹ️" label="About Us" />
+          <NavItem to="/settings" icon="⚙️" label="Settings" />
+        </nav>
+      </div>
     </aside>
   );
 }

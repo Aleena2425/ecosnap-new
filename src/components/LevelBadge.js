@@ -8,7 +8,7 @@ function LevelBadge({ points }) {
     : 100;
 
   return (
-    <div className="bg-white p-4 rounded-xl shadow-md">
+    <div className="bg-white p-6 rounded-xl shadow-lg">
       <div className="flex items-center justify-between mb-2">
         <h3 className="text-lg font-semibold text-green-700">Level</h3>
         <span className="text-green-600 text-xl font-bold">
@@ -17,11 +17,13 @@ function LevelBadge({ points }) {
       </div>
       {level.next && (
         <>
-          <div className="w-full bg-gray-200 h-2 rounded-full">
+          <div className="w-full bg-gray-200 h-4 rounded-full">
             <div
-              className="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full"
+              className="bg-gradient-to-r from-green-400 to-green-600 h-4 rounded-full flex items-center justify-center text-xs text-white"
               style={{ width: `${progress}%` }}
-            />
+            >
+              {progress}%
+            </div>
           </div>
           <p className="text-xs text-gray-500 mt-1 text-right">
             {points}/{level.next} EcoPoints to next level

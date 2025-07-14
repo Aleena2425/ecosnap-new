@@ -11,18 +11,21 @@ function Navbar() {
   };
 
   return (
-    <header className="bg-green-100 border-b shadow-sm p-4 flex justify-between items-center">
-      <div className="text-xl font-bold text-green-700">EcoSnap</div>
+    <header className="bg-white border-b shadow-md p-4 flex justify-between items-center">
+      <div className="text-2xl font-bold text-green-700 flex items-center">
+        <span role="img" aria-label="leaf" className="mr-2">🌿</span>
+        EcoSnap
+      </div>
       <div className="flex gap-4 items-center">
         {!loggedIn ? (
           <button
-            className="bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700"
+            className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors duration-300"
             onClick={() => setShowModal(true)}
           >
             Login
           </button>
         ) : (
-          <span className="text-green-700 font-medium">👋 Aleena</span>
+          <span className="text-green-700 font-medium">👋 Welcome, Aleena</span>
         )}
       </div>
 

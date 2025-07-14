@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 export default function RewardsPage() {
-  const [ecoPoints, setEcoPoints] = useState(40); // Example starting value
+  const history = JSON.parse(localStorage.getItem('ecoSnapHistory')) || [];
+  const [ecoPoints, setEcoPoints] = useState(history.reduce((acc, item) => acc + (item.ecoPoints || 0), 0));
   const rewards = [
     { id: 1, title: "10% Off EcoBag", cost: 30 },
     { id: 2, title: "Digital Recycling Badge", cost: 50 },
